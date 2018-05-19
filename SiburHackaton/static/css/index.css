@@ -1,3 +1,95 @@
-p{
-    color: red;
+html{
+    background: #eef1f2;
+    height: 100%;
+}
+
+body{
+    margin: 0px !important;
+}
+
+header{
+    height: 100px;
+    background: white;
+    -webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+    -moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+    box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+}
+
+h1{
+    text-align: center;
+    color: #333333;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+#logo{
+    float: left;
+    margin-top: 21px;
+    margin-left: 100px;
+}
+
+#team_name_block{
+    width: 150px;
+    float: right;
+    font-size: 25px;
+    margin-top: 30px;
+    margin-right: 100px;
+    color: #0a8a93;
+    font-family: "Impact";
+}
+
+#main_block div{
+    height: 530px;
+    border: 1px solid black;
+}
+
+#main_block #main_left_block{
+    float: left;
+    width: 49%;
+}
+
+#main_block #main_right_block{
+    float: right;
+    width: 50%;
+}
+
+#bottom_block{
+    height: 250px;
+}
+
+#bottom_block div{
+    float: left;
+    width: 33%;
+    height: 100%;
+    border: 1px solid black;
+}
+
+#bottom_block .header_graph{
+    text-align: center;
+    color: #333333;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    line-height: 32px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+#graph_radar{
+    height: 500px !important;
+    width: 500px !important;
+    margin: auto;
+    margin-top: -30px;
+}
+
+.header_graph_radar{
+    text-align: center;
+    color: #333333;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: 300;
+    text-transform: uppercase;
 }

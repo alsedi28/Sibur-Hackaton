@@ -5,9 +5,50 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}" />
-    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/speedometer.css' %}" />
+    <script  src="{% static "js/jquery-3.0.0.min.js" %}" ></script>
+    <script  src="{% static "js/Chart.bundle.min.js" %}" ></script>
+    <script  src="{% static "js/Chart.min.js" %}" ></script>
+    <script  src="{% static "js/speedometer.js" %}" ></script>
+    <title>Мониторинг</title>
 </head>
 <body>
-    <p>Hello World!</p>
+    <header>
+        <img src="{% static "images/Sibur_logo.png" %}" width="180px" id="logo">
+        <div id="team_name_block">ML witnesses</div>
+        <div style="clear: both"></div>
+    </header>
+    <main>
+        <h1>Мониторинг</h1>
+        <div id="main_block">
+            <div id="main_left_block">
+                <input id="speedometer_graph" type="hidden">
+            </div>
+            <div id="main_right_block">
+                <p class="header_graph_radar">График Радар</p>
+                <canvas id="graph_radar" width="200px" height="200px"></canvas>
+            </div>
+            <div style="clear: both; height: 0px"></div>
+        </div>
+        <div id="bottom_block">
+            <div>
+                <p class="header_graph">График 1</p>
+                <canvas id="graph_one" width="200" height="200"></canvas>
+            </div>
+            <div>
+                <p class="header_graph">График 2</p>
+                <canvas id="graph_two" width="200" height="200"></canvas>
+            </div>
+            <div>
+                <p class="header_graph">График 3</p>
+                <canvas id="graph_three" width="200" height="200"></canvas>
+            </div>
+            <div style="clear: both; height: 0px"></div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script  src="{% static "js/index.js" %}" ></script>
 </body>
 </html>
