@@ -87,7 +87,7 @@ $.fn.myfunc = function (userPref) {
   }
   this.creatHtmlsElecments = function(){
     this.parentElemId = 'speedometerWraper-' + $(this).attr('id');
-    $(this).wrap('<div id="'+ this.parentElemId +'">');
+    $(this).wrap('<div id="'+ this.parentElemId +'" class="block_my_spd">');
     this.parentElem = $(this).parent();
     this.setCssProperty();
     this.createIndicators();

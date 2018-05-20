@@ -119,3 +119,10 @@
 .numb.warning{
 	color: yellow;
 }
+
+.block_my_spd{
+	height: auto !important;
+	width: 300px;
+    margin: auto;
+    margin-top: 65px;
+}
