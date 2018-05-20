@@ -1,4 +1,4 @@
-var start_date = "2017-01-12 13:47:00";
+var start_date = "2017-01-11 10:03:00";
 
 var ctx_one = document.getElementById("graph_one");
 var ctx_two = document.getElementById("graph_two");
@@ -34,9 +34,9 @@ var graph_radar = new Chart(ctx_radar, {
     }
 });
 
-var graph_one = create_line_graph(ctx_one, "Дата", "YYY", x1Data, y1Data);
-var graph_two = create_line_graph(ctx_two, "Дата", "YYY", x2Data, y2Data);
-var graph_three = create_line_graph(ctx_three, "Дата", "YYY", x3Data, y3Data);
+var graph_one = create_line_graph(ctx_one, "Время", "Разность тока, А", x1Data, y1Data);
+var graph_two = create_line_graph(ctx_two, "Время", "Температура Фильера, C", x2Data, y2Data);
+var graph_three = create_line_graph(ctx_three, "Время", "Давление вала, МПа", x3Data, y3Data);
 
 setInterval(function() {
     var request_date = new Date(start_date);
@@ -50,8 +50,10 @@ setInterval(function() {
     var minutes = request_date.getMinutes();
     var seconds = request_date.getSeconds();
 
-    start_date = year + '-' + monthIndex + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
-    date_for_view = start_date.split(" ")[1];
+    var minutes_view = minutes > 9 ? minutes : "0" + minutes;
+    var seconds_view = seconds > 9 ? seconds : "0" + seconds;
+    var start_date = year + '-' + monthIndex + '-' + day + ' ' + hours + ':' + minutes_view + ':' + seconds_view;
+    var date_for_view = start_date.split(" ")[1];
 
     $.ajax({
             type: 'POST',
@@ -65,6 +67,9 @@ setInterval(function() {
                 change_data_radar_graph(graph_radar, [data.top1, data.top2, data.top3, data.top4, data.top5]);
 
                 $('#speedometer_graph').val((data.proba * 100).toFixed()).trigger('change');
+                $('#middle_left_block .value').val(data.top1.toFixed(4));
+                $('#middle_center_block .value').val(data.top2.toFixed(2));
+                $('#middle_right_block .value').val(data.top3.toFixed(4));
             }
         });
 }, 10000);
