@@ -147,6 +147,7 @@ footer{
     height: 50px;
     background: white;
     border-top: grey 1px solid;
+    margin-top: 30px;
 }
 
 #header_date{
