@@ -788,7 +788,7 @@ setInterval(function() {
 
                 change_data_radar_graph(graph_radar, [data.top1, data.top2, data.top3, data.top4, data.top5]);
 
-                $('#speedometer_graph').val(data.proba * 100).trigger('change');
+                $('#speedometer_graph').val((data.proba * 100).toFixed()).trigger('change');
             }
         });
 }, 10000);
@@ -853,7 +853,17 @@ function change_data_line_graph(graph_obj, value_x, value_y) {
 
 function change_data_radar_graph(graph_obj, value_arr) {
     graph_obj.data.datasets.forEach(function(dataset){
-        dataset.data = value_arr;
+        dataset.data.push(value_arr[0]);
+        dataset.data.push(value_arr[1]);
+        dataset.data.push(value_arr[2]);
+        dataset.data.push(value_arr[3]);
+        dataset.data.push(value_arr[4]);
+
+        dataset.data.shift();
+        dataset.data.shift();
+        dataset.data.shift();
+        dataset.data.shift();
+        dataset.data.shift();
     });
 
     graph_obj.update();
