@@ -43,7 +43,6 @@ h1{
 
 #main_block div{
     height: 530px;
-    border: 1px solid black;
 }
 
 #main_block #main_left_block{
@@ -64,7 +63,6 @@ h1{
     float: left;
     width: 33%;
     height: 100%;
-    border: 1px solid black;
 }
 
 #bottom_block .header_graph{
