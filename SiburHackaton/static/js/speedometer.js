@@ -1,8 +1,3 @@
-/*!
-	*speedometer.js
-	*author: Manivannan R
-	*project: Speedometer
-*/
 $.fn.myfunc = function (userPref) {
   var self = this;
   this.defaultProperty = {
