@@ -135,8 +135,9 @@ $.fn.myfunc = function (userPref) {
     var speedNobe = '<div class="speedNobe"><div></div></div><div class="speedPosition"></div>';
 
     this.parentElem.find(".envelope").append(speedNobe+tempDiv);
-    this.parentElem.find(".envelope").after("<div id='alert_message_block'></div>")
-  }
+    this.parentElem.find(".envelope").after("<div id='alert_message_block'></div>");
+    $("#alert_message_block").after("<div id='alert_button'>Обратная связь</div>");
+  };
   this.changePosition = function (){
     var speed = $(this).val();
     if(speed > self.defaultProperty.maxVal){

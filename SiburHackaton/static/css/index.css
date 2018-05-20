@@ -182,3 +182,32 @@ footer{
     font-weight: bold;
     text-transform: uppercase;
 }
+
+canvas#graph_zero{
+    height: 450px !important;
+    width: 650px !important;
+}
+
+#middle_center_block .header{
+    padding-top: 12px;
+    padding-bottom: 11px;
+}
+
+#alert_button {
+    font-family: 'Open Sans', sans-serif;
+    width: 180px !important;
+    height: 32px !important;
+    background-color: #0a8a93;
+    border: 1px solid #0a8a93;
+    margin: auto;
+    text-align: center;
+    padding-top: 13px;
+    font-size: 19px;
+    color: white;
+}
+
+#alert_button:hover{
+    background-color: rgba(170,212,215, 0.5);
+    cursor: pointer;
+    color: #0a8a93;
+}

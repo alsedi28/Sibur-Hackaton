@@ -1,39 +1,12 @@
-var start_date = "2017-01-11 10:03:00";
+var start_date = "2017-01-11 11:42:00";
 
 var ctx_one = document.getElementById("graph_one");
 var ctx_two = document.getElementById("graph_two");
 var ctx_three = document.getElementById("graph_three");
 
-var ctx_radar = document.getElementById("graph_radar");
+var ctx_zero = document.getElementById("graph_zero");
 
-var graph_radar = new Chart(ctx_radar, {
-    type: 'radar',
-    data: {
-        //labels: ['Ток на RF-21304 \\n std за 2 ч., А', 'Температура фильеры, градус', 'Среднее давление впереди вала за 6 ч., МПа', 'Мин. положения ножа экструдера за ч., мм', 'Температура в EX-21401 std за 3 ч., градус'],
-        labels: ['Top1', 'Top2', 'Top3', 'Top4', 'Top5'],
-        datasets: [{
-            data: [20, 10, 4, 2, 34],
-            backgroundColor: ['rgba(170,212,215, 0.5)'],
-            borderColor: ['#0a8a93']
-        }]
-    },
-    options: {
-        legend: {
-            display: false
-        },
-        animation: {
-            duration: 0
-        },
-        scale: {
-            ticks: {
-              min: 0,
-              beginAtZero: true
-            },
-            pointLabels: { fontSize:24 }
-          }
-    }
-});
-
+var graph_zero = create_line_graph(ctx_zero, "Время", "Вероятность", x0Data, y0Data);
 var graph_one = create_line_graph(ctx_one, "Время", "Разность тока, А", x1Data, y1Data);
 var graph_two = create_line_graph(ctx_two, "Время", "Температура Фильера, C", x2Data, y2Data);
 var graph_three = create_line_graph(ctx_three, "Время", "Давление вала, МПа", x3Data, y3Data);
@@ -52,7 +25,7 @@ setInterval(function() {
 
     var minutes_view = minutes > 9 ? minutes : "0" + minutes;
     var seconds_view = seconds > 9 ? seconds : "0" + seconds;
-    var start_date = year + '-' + monthIndex + '-' + day + ' ' + hours + ':' + minutes_view + ':' + seconds_view;
+    start_date = year + '-' + monthIndex + '-' + day + ' ' + hours + ':' + minutes_view + ':' + seconds_view;
     var date_for_view = start_date.split(" ")[1];
 
     $.ajax({
@@ -63,13 +36,12 @@ setInterval(function() {
                 change_data_line_graph(graph_one, date_for_view, data.top1);
                 change_data_line_graph(graph_two, date_for_view, data.top2);
                 change_data_line_graph(graph_three, date_for_view, data.top3);
-
-                change_data_radar_graph(graph_radar, [data.top1, data.top2, data.top3, data.top4, data.top5]);
+                change_data_line_graph(graph_zero, date_for_view, data.proba);
 
                 $('#speedometer_graph').val((data.proba * 100).toFixed()).trigger('change');
-                $('#middle_left_block .value').val(data.top1.toFixed(4));
-                $('#middle_center_block .value').val(data.top2.toFixed(2));
-                $('#middle_right_block .value').val(data.top3.toFixed(4));
+                $('#middle_left_block .value').html(data.top1.toFixed(4));
+                $('#middle_center_block .value').html(data.top2.toFixed(2));
+                $('#middle_right_block .value').html(data.top3.toFixed(4));
             }
         });
 }, 10000);
@@ -124,24 +96,6 @@ function change_data_line_graph(graph_obj, value_x, value_y) {
     graph_obj.data.datasets.forEach(function(dataset){
         dataset.data.shift();
     });
-    graph_obj.update();
-}
-
-function change_data_radar_graph(graph_obj, value_arr) {
-    graph_obj.data.datasets.forEach(function(dataset){
-        dataset.data.push(value_arr[0]);
-        dataset.data.push(value_arr[1]);
-        dataset.data.push(value_arr[2]);
-        dataset.data.push(value_arr[3]);
-        dataset.data.push(value_arr[4]);
-
-        dataset.data.shift();
-        dataset.data.shift();
-        dataset.data.shift();
-        dataset.data.shift();
-        dataset.data.shift();
-    });
-
     graph_obj.update();
 }
 
