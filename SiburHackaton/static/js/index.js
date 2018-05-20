@@ -9,6 +9,7 @@ var ctx_radar = document.getElementById("graph_radar");
 var graph_radar = new Chart(ctx_radar, {
     type: 'radar',
     data: {
+        //labels: ['Ток на RF-21304 \\n std за 2 ч., А', 'Температура фильеры, градус', 'Среднее давление впереди вала за 6 ч., МПа', 'Мин. положения ножа экструдера за ч., мм', 'Температура в EX-21401 std за 3 ч., градус'],
         labels: ['Top1', 'Top2', 'Top3', 'Top4', 'Top5'],
         datasets: [{
             data: [20, 10, 4, 2, 34],
@@ -28,7 +29,7 @@ var graph_radar = new Chart(ctx_radar, {
               min: 0,
               beginAtZero: true
             },
-            pointLabels: { fontSize:25 }
+            pointLabels: { fontSize:24 }
           }
     }
 });

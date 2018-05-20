@@ -118,11 +118,11 @@ h1{
     color: #333333;
     font-family: 'Open Sans', sans-serif;
     font-size: 15px;
-    line-height: 32px;
+    line-height: 18px;
     font-weight: 300;
+    padding: 3px;
     text-transform: uppercase;
-
-    width: 150px;
+    width: 212px;
     background-color: rgb(170,212,215);
     margin: auto;
 }
@@ -136,7 +136,7 @@ h1{
     text-transform: uppercase;
 
     background-color: white;
-    width: 150px;
+    width: 218px;
     margin: auto;
     font-size: 32px;
     height: 40px;
