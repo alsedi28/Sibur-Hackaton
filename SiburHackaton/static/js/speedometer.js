@@ -98,6 +98,7 @@ $.fn.myfunc = function (userPref) {
       if(curIndVal >= 50 && curIndVal < this.defaultProperty.dangerLevel){
         dangCls = "warning";
       }
+
       var induCatorLinesPosY = this.defaultProperty.indicatorRadius * Math.cos( 0.01746 * curDig);
       var induCatorLinesPosX = this.defaultProperty.indicatorRadius * Math.sin( 0.01746 * curDig);
       
@@ -134,6 +135,7 @@ $.fn.myfunc = function (userPref) {
     var speedNobe = '<div class="speedNobe"><div></div></div><div class="speedPosition"></div>';
 
     this.parentElem.find(".envelope").append(speedNobe+tempDiv);
+    this.parentElem.find(".envelope").after("<div id='alert_message_block'></div>")
   }
   this.changePosition = function (){
     var speed = $(this).val();
@@ -155,13 +157,21 @@ $.fn.myfunc = function (userPref) {
     color_speed = "white";
     if(speed >= 80){
         color_speed = "red";
+        $("html").css({backgroundColor: 'rgba(250, 0, 0, 0.3)'});
+        $("#alert_message_block").text("Авария!");
     }
     if(speed >= 50 && speed < 80){
         color_speed = "yellow";
+        $("#alert_message_block").text("Внимание!");
+        $("html").css({backgroundColor: 'rgba(255, 255, 0, 0.3)'});
+    }
+    if(speed < 50) {
+        $("html").css({backgroundColor: '#eef1f2'});
+        $("#alert_message_block").text("");
     }
 
     var centerVal = speed *  self.defaultProperty.multiplier;
-    self.parentElem.find(".speedPosition").html("<span style='color:" + color_speed + "'>" + centerVal + "</span><span>%</span><br />" + self.defaultProperty.gagueLabel );
+    self.parentElem.find(".speedPosition").html("<span style='color:" + color_speed + "'>" + centerVal + "%</span><br />" + self.defaultProperty.gagueLabel );
 
     for(var i=0; i<=noOfDev; i++){
       if(speed >= i*self.defaultProperty.divFact){

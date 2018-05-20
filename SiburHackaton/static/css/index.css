@@ -7,12 +7,20 @@ body{
     margin: 0px !important;
 }
 
+main{
+    margin-top: 150px;
+}
+
 header{
     height: 100px;
     background: white;
     -webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
     -moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
     box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+    position: fixed;
+    top: 0px;
+    z-index: 100;
+    width: 100%;
 }
 
 h1{
@@ -39,6 +47,10 @@ h1{
     margin-right: 100px;
     color: #0a8a93;
     font-family: "Impact";
+}
+
+#main_block{
+    margin-top: -40px;
 }
 
 #main_block div{
@@ -132,7 +144,9 @@ h1{
 }
 
 footer{
-    height: 100px;
+    height: 50px;
+    background: white;
+    border-top: grey 1px solid;
 }
 
 #header_date{
@@ -146,4 +160,25 @@ footer{
 
 #header_date span{
     font-weight: bold;
+}
+
+#copyright{
+    text-align: center;
+    color: #333333;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    line-height: 32px;
+    font-weight: 300;
+}
+
+#alert_message_block{
+    height: 40px !important;
+    padding-top: 10px;
+    text-align: center;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30px;
+    line-height: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
