@@ -25,8 +25,6 @@ var graph_radar = new Chart(ctx_radar, {
         scale: {
             ticks: {
               min: 0,
-              //max: 50,
-              //stepSize: 10,
               beginAtZero: true
             },
             pointLabels: { fontSize:25 }
@@ -40,7 +38,7 @@ var graph_three = create_line_graph(ctx_three, "Дата", "YYY", x3Data, y3Data
 
 setInterval(function() {
     var request_date = new Date(start_date);
-    console.log(request_date);
+
     request_date.setSeconds(request_date.getSeconds() + 10);
 
     var day = request_date.getDate();
@@ -51,17 +49,16 @@ setInterval(function() {
     var seconds = request_date.getSeconds();
 
     start_date = year + '-' + monthIndex + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
-
-    console.log(start_date);
+    date_for_view = start_date.split(" ")[1];
 
     $.ajax({
             type: 'POST',
             url: 'api/data',
             data: { 'date' : start_date },
             success: function (data) {
-                change_data_line_graph(graph_one, start_date, data.top1);
-                change_data_line_graph(graph_two, start_date, data.top2);
-                change_data_line_graph(graph_three, start_date, data.top3);
+                change_data_line_graph(graph_one, date_for_view, data.top1);
+                change_data_line_graph(graph_two, date_for_view, data.top2);
+                change_data_line_graph(graph_three, date_for_view, data.top3);
 
                 change_data_radar_graph(graph_radar, [data.top1, data.top2, data.top3, data.top4, data.top5]);
 

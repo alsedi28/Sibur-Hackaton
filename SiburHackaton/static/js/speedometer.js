@@ -140,8 +140,7 @@ $.fn.myfunc = function (userPref) {
 
     this.parentElem.find(".envelope").append(speedNobe+tempDiv);
   }
-  this.changePosition = function (){   
-    console.log($(this).val())
+  this.changePosition = function (){
     var speed = $(this).val();
     if(speed > self.defaultProperty.maxVal){
       speed = self.defaultProperty.maxVal;
@@ -157,9 +156,17 @@ $.fn.myfunc = function (userPref) {
       "-moz-transform"    :'rotate('+speedInDeg+'deg)',
       "-o-transform"      :'rotate('+speedInDeg+'deg)'
     });
-    
+
+    color_speed = "white";
+    if(speed >= 80){
+        color_speed = "red";
+    }
+    if(speed >= 50 && speed < 80){
+        color_speed = "yellow";
+    }
+
     var centerVal = speed *  self.defaultProperty.multiplier;
-    self.parentElem.find(".speedPosition").html("<span>" + centerVal + "%</span><br />" + self.defaultProperty.gagueLabel );
+    self.parentElem.find(".speedPosition").html("<span style='color:" + color_speed + "'>" + centerVal + "</span><span>%</span><br />" + self.defaultProperty.gagueLabel );
 
     for(var i=0; i<=noOfDev; i++){
       if(speed >= i*self.defaultProperty.divFact){
@@ -168,8 +175,8 @@ $.fn.myfunc = function (userPref) {
         break;
       }
     }
-  }
+  };
   this.creatHtmlsElecments();
   $(this).bind(this.defaultProperty.eventListenerType,this.changePosition);
   return this;
-}
+};

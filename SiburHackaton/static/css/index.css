@@ -56,7 +56,7 @@ h1{
 }
 
 #bottom_block{
-    height: 250px;
+    height: 600px;
 }
 
 #bottom_block div{
@@ -90,4 +90,60 @@ h1{
     line-height: 32px;
     font-weight: 300;
     text-transform: uppercase;
+}
+
+#middle_block{
+    height: 100px;
+}
+
+#middle_block div{
+    width: 33%;
+    float: left;
+}
+
+#middle_block p.header{
+    text-align: center;
+    color: #333333;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    line-height: 32px;
+    font-weight: 300;
+    text-transform: uppercase;
+
+    width: 150px;
+    background-color: rgb(170,212,215);
+    margin: auto;
+}
+
+#middle_block p.value{
+    text-align: center;
+    color: #333333;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 32px;
+    font-weight: 300;
+    text-transform: uppercase;
+
+    background-color: white;
+    width: 150px;
+    margin: auto;
+    font-size: 32px;
+    height: 40px;
+    padding-top: 10px;
+}
+
+footer{
+    height: 100px;
+}
+
+#header_date{
+    text-align: center;
+    color: #333333;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 19px;
+    line-height: 32px;
+    font-weight: 300;
+}
+
+#header_date span{
+    font-weight: bold;
 }
