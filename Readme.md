@@ -27,6 +27,9 @@
     <img src="./SiburHackaton/static/images/4.png" alt="4"/>
 </p>
 
+## Презентация
+
+Презентацию нашего проекта можно найти <a href="./ml_witnesses.pdf">здесь</a>.
 
 ## Команда ML Witnesses
 
